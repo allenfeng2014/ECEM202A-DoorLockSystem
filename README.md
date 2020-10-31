@@ -15,6 +15,11 @@ This project of an embedded door lock system is described with a digital lock in
 The principle aim of this door lock system is to enable a door with a password or a fingerprint. The user will be able to
 change, add, or delete a stored password/fingerprint entry with the help of a voice assistant (or a LCD).
 
+## Weekly Schedule
+- Week 1-3: Project proposal, system overview
+- Week 4-7: Control unit design, I/O components design, system prototyping
+- Week 8-10: System implementation, validation, final adjustments
+
 ## Hardware List
 - Arduino Uno
 - Biometric sensor from Arduino........
