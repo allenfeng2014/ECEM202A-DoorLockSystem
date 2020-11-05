@@ -11,9 +11,10 @@ Project Repositories: https://github.com/allenfeng2014/ECEM202A-DoorLockSystem
 Final Presentation Video: ....................
 
 ## Project Introduction
-This project of an embedded door lock system is described with a digital lock interfaced with a microcontroller (and a FPGA).
-The principle aim of this door lock system is to enable a door with a password or a fingerprint. The user will be able to
-change, add, or delete a stored password/fingerprint entry with the help of a voice assistant (or a LCD).
+This project of an embedded door lock system is described with a digital lock interfaced with a microcontroller.
+The principle aim of this door lock system is to enable a door with a graphical password or a fingerprint. The user will be able to
+enter a graphical password on touch screen, or use finger on a biometric sensor, to unlock the door. The user will also be able to
+add or delete a stored password/fingerprint entry with the help of touch screen UI.
 
 ## Weekly Schedule
 - Week 1-3: Project proposal, system overview
@@ -22,8 +23,7 @@ change, add, or delete a stored password/fingerprint entry with the help of a vo
 
 ## Hardware List
 - Arduino Uno
+- 2.8" TFT Touchscreen
 - Biometric sensor from Arduino........
 - Motor driver from Arduino
 - LCD from Arduino ........
-- Xilinx Spartan-6 FPGA
-- LCD from ALINX ......
