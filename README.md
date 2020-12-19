@@ -27,3 +27,10 @@ information of the key used for last unlock action. The user will know if someon
 - 2.8" TFT Touchscreen
 - Optical Fingerprint Sensor
 - SpringRC Micro Analog Servo Motor
+
+## Libraries
+- EEPROM.h
+- Adafruit_TFTLCD.h
+- Adafruit_TouchScreen.h
+- Adafruit_Fingerprint.h
+- Servo.h
