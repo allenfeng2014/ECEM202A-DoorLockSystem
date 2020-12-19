@@ -27,7 +27,3 @@ information of the key used for last unlock action. The user will know if someon
 - 2.8" TFT Touchscreen
 - Optical Fingerprint Sensor
 - SpringRC Micro Analog Servo Motor
-
-## Source Code
-The source code for Arduino Uno is "doorlock.ino". To upload it to Arduino board, create a folder named "doorlock" and place the source code inside.
-Then open the project from Arduino IDE to complie and upload to your board. Detailed wiring schematic is included in our project website.
