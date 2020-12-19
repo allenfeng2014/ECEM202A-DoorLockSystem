@@ -6,7 +6,7 @@ ECE M202A project: door lock system with customized features
 - Ruixiao Bai
 
 ### Links
-Project Website: ............
+Project Website: https://allenfeng2014.github.io/allenfeng2014.github.io-door-lock-system/
 
 Final Presentation Video: ....................
 
