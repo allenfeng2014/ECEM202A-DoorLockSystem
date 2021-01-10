@@ -1,0 +1,36 @@
+/*<!--Yuhao Feng, Ruixiao Bai, 12/18/2020 ECE UCLA-->
+<!--© 2020 YF & RB. All rights reserved.-->*/
+* {
+  margin: 1%;
+  border: 0;
+}
+.page-title {
+  text-align: center;
+}
+.page-title h2 {
+  text-align: right;
+  font-size: 1.4em;
+}
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 96%;
+  background-color: grey;
+  height: 5px;
+}
+p {
+  font-size: 1.1em;
+}
+.section-title {
+  margin-top: 30px;
+  display: block;
+}
+.image-li {
+  width: 180px;
+  height: 240px;
+}
+.content-block {
+  display: inline-block;
+  width: 400px;
+}

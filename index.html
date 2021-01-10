@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--Yuhao Feng, Ruixiao Bai, 12/18/2020 ECE UCLA-->
+<!--© 2020 YF & RB. All rights reserved.-->
+<head>
+  <title>ECE M202A Project Website</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <div class="page-title">
+    <h1>Door Lock System with Graphical Password</h1>
+    <h2>Yuhao Feng, Ruixiao Bai</h2>
+    <h2>ECE M202A UCLA</h2>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Introduction</h2>
+      <hr />
+    </div>
+    <div id="introduction">
+      <p>
+        This project of an embedded door lock system is described with a digital
+        lock interfaced with a microcontroller. The principle aim of this door
+        lock system is to enable a door with a graphical password or a
+        fingerprint. The user will be able to enter a graphical password on
+        touchscreen, or use finger on a fingerprint sensor, to unlock the door.
+        The user will also be able to add or delete a stored
+        password/fingerprint entry with the help of touch screen UI. For
+        security purpose, the system will display information of the key used
+        for last unlock action. The user will know if someone else has entered
+        the room when the user was absent.
+      </p>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Technical Approach</h2>
+      <hr />
+    </div>
+    <div id="technical-approach">
+      <img alt="system diagram" src="images/system diagram.PNG" />
+      <p>
+        The system diagram is shown above. The central finite state machine is
+        responsible for state transitions and touchscreen display update.
+        Graphical passwords are saved in EEPROM of Arduino module. The ROM is
+        used to store passwords for user identity verification. The state
+        machine also communicates with other devices for inputs and outputs. The
+        touchscreen is the interface for the user to interact with the system.
+        Fingerprints are saved in the built-in flash memory component of the
+        fingerprint sensor module. The system uses a servo motor to simulate
+        lock and unlock action on a door.
+      </p>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Implementation and Evaluation</h2>
+      <hr />
+    </div>
+    <div id="implementation">
+      <p style="font-weight: bold">Hardware list:</p>
+      <ul id="hardware-list">
+        <li>Arduino Uno R3</li>
+        <li>2.8" TFT Touch Screen</li>
+        <li>SpringRC Micro Analog Servo Motor</li>
+        <li>Optical Fingerprint Reader</li>
+      </ul>
+      <p style="font-weight: bold">Wiring schematic:</p>
+      <img
+        alt="wiring overview"
+        src="images/wiring overview.jpg"
+        style="width: 480px"
+      />
+      <img
+        alt="wiring table"
+        src="images/wiring table.PNG"
+        style="width: 300px"
+      />
+      <p style="font-weight: bold">Libraries:</p>
+      <ul id="library-list">
+        <li>Arduino Uno: EEPROM.h, standard libraries</li>
+        <li>Touchscreen: Adafruit_TFTLCD.h, Adafruit_TouchScreen.h</li>
+        <li>FIngerprint Sensor: Adafruit_Fingerprint.h</li>
+        <li>Servo Motor: Servo.h</li>
+      </ul>
+      <ul id="schematic-list"></ul>
+      <p style="font-weight: bold">Central FSM States:</p>
+      <ul id="FSM-list">
+        <div class="content-block">
+          <li>VisitorLcked: door locked</li>
+          <img
+            class="image-li"
+            alt="VisitorLcked"
+            src="images/VisitorLcked.jpg"
+          />
+        </div>
+        <div class="content-block">
+          <li>PWEnter: interface for entering graphical password</li>
+          <img class="image-li" alt="PWEnter" src="images/PWEnter.jpg" />
+        </div>
+        <div class="content-block">
+          <li>BioEnter: interface for entering fingerprint</li>
+          <img class="image-li" alt="BioEnter" src="images/BioEnter.jpg" />
+        </div>
+        <div class="content-block">
+          <li>DoorUnlocked: door unlocked, unlock history information</li>
+          <img
+            class="image-li"
+            alt="DoorUnlocked1"
+            src="images/DoorUnlocked1.jpg"
+          />
+          <img
+            class="image-li"
+            alt="DoorUnlocked2"
+            src="images/DoorUnlocked2.jpg"
+          />
+        </div>
+        <div class="content-block">
+          <li>VisitorUnlcked: door open, user identify not verified</li>
+          <img
+            class="image-li"
+            alt="VisitorUnlcked"
+            src="images/VisitorUnlcked.jpg"
+          />
+        </div>
+        <div class="content-block">
+          <li>OwnerVerify: door open, verify identity to manage keys</li>
+          <img
+            class="image-li"
+            alt="OwnerVerify"
+            src="images/OwnerVerify.jpg"
+          />
+        </div>
+        <div class="content-block">
+          <li>KeyManager: door open, identity verified, manage keys</li>
+          <img class="image-li" alt="KeyManager" src="images/KeyManager.jpg" />
+        </div>
+        <div class="content-block">
+          <li>PWManager: manage password entries</li>
+          <img class="image-li" alt="PWManager" src="images/PWManager.jpg" />
+        </div>
+        <div class="content-block">
+          <li>BioManager: manage fingerprint entries</li>
+          <img class="image-li" alt="BioManager" src="images/BioManager.jpg" />
+        </div>
+        <div class="content-block">
+          <li>KeyDelete: confirm deleting action</li>
+          <img class="image-li" alt="KeyDelete" src="images/KeyDelete.jpg" />
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Prior Work Examples</h2>
+      <hr />
+    </div>
+    <div id="prior work examples">
+      <p>
+        Touchscreen project:<a
+          href="https://learn.adafruit.com/2-8-tft-touchscreen/touchscreen"
+          >Adafruit 2.8" TFT Touchscreen</a
+        >
+      </p>
+      <p>
+        Fingerprint sensor project:<a
+          href="https://create.arduino.cc/projecthub/MissionCritical/how-to-set-up-fingerprint-sensor-with-arduino-ebd543"
+          >Arduino Fingerprint Sensor</a
+        >
+      </p>
+      <p>
+        Servo motor project:<a
+          href="https://create.arduino.cc/projecthub/arcaegecengiz/how-to-use-servo-motors-with-arduino-b02bed"
+          >Arduino Fingerprint Sensor</a
+        >
+      </p>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Insights and Future Work</h2>
+      <hr />
+    </div>
+    <div id="future work">
+      <p>Future improvements:</p>
+      <ul>
+        <li>
+          Code optimization: currently takes 93% program storage, 71% dynamic
+          memory
+        </li>
+        <li>
+          Improve user interface: re-arrange text locations and add more
+          instructions for the user
+        </li>
+        <li>
+          External clock: get a clock module to keep track of timestamp for
+          better unlock history display
+        </li>
+        <li>Key entries: could increase the number of key entries if needed</li>
+        <li>
+          Servo motor noise: in bio manager state, when the fingerprint sensor
+          is sampling data, servo motor experience little fluctuations
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Contributions</h2>
+      <hr />
+    </div>
+    <div id="contributions">
+      <p>Yuhao Feng:</p>
+      <ul>
+        <li>System overview</li>
+        <li>Central FSM implementation</li>
+        <li>EEPROM module</li>
+        <li>System debugging</li>
+        <li>Final presentation</li>
+        <li>System demo</li>
+        <li>Project website</li>
+      </ul>
+      <p>Ruixiao Bai:</p>
+      <ul>
+        <li>Prior work search</li>
+        <li>Fingerprint sensor module</li>
+        <li>Servo module</li>
+        <li>Push buttons</li>
+        <li>Midpoint presentation</li>
+        <li>System debugging</li>
+        <li>System demo</li>
+        <li>Project website</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Links</h2>
+      <hr />
+    </div>
+    <div id="links">
+      <p>
+        Project repository:
+        <a href="https://github.com/allenfeng2014/ECEM202A-DoorLockSystem">
+          repository
+        </a>
+      </p>
+      <p>
+        Final presentation video:
+        <a href="https://youtu.be/eGlGBL1LApc"> final presentation </a>
+      </p>
+      <p>
+        Project demo:
+        <a href="https://youtu.be/bYOx0-7opLA"> project demo </a>
+      </p>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-title">
+      <h2>References</h2>
+      <hr />
+    </div>
+    <div id="references">
+      <p>EEPROM.h: <u>https://www.arduino.cc/en/Reference/EEPROM</u></p>
+      <p>
+        Adafruit_TFTLCD.h: <u>https://github.com/adafruit/TFTLCD-Library</u>
+      </p>
+      <p>
+        Adafruit_TouchScreen.h:
+        <u>https://github.com/adafruit/Adafruit_TouchScreen</u>
+      </p>
+      <p>
+        Adafruit_Fingerprint.h:
+        <u>https://github.com/adafruit/Adafruit-Fingerprint-Sensor-Library</u>
+      </p>
+      <p>
+        Servo.h: <u>https://www.arduino.cc/reference/en/libraries/servo/</u>
+      </p>
+    </div>
+  </div>
+</body>
